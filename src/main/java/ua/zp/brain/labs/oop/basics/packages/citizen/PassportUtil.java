@@ -5,8 +5,7 @@ public class PassportUtil {
         //close constructor
     }
     public static void marriageRegistrate(Passport passport1,Passport passport2){
-        passport1.setId(100);
-        passport2.setId(200);
-        System.out.println("test");
+        passport1.setId(passport2.getId());
+        passport2.setId(passport1.getId());
     }
 }
