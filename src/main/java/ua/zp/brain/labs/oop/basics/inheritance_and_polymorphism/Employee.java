@@ -42,6 +42,8 @@ public class Employee extends Human {
     }
 
     public void makeWork(){
-        System.out.println("I'm going to work");
+        System.out.println(getName()+" going to work");
+
     }
+
 }
