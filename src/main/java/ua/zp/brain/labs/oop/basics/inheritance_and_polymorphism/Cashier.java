@@ -17,9 +17,10 @@ public final class Cashier extends Employee {
     @Override
     public void makeWork() {
         super.makeWork();
+        countMoney();
     }
 
     public void countMoney(){
-        System.out.println("Cashier count money");
+        System.out.println(getName()+" count money");
     }
 }

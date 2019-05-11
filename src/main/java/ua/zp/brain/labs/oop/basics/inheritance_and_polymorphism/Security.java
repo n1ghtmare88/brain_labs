@@ -8,8 +8,9 @@ public final class Security extends Employee {
     @Override
     public void makeWork() {
         super.makeWork();
+        talk();
     }
     public void talk(){
-        System.out.println("Security talk on the radio");
+        System.out.println(getName()+" talk on the radio");
     }
 }

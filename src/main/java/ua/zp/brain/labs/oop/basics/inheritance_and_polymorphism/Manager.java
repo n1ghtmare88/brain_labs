@@ -17,15 +17,18 @@ public final class Manager extends Employee {
     @Override
     public void makeWork() {
         super.makeWork();
+        consult();
+        sayDiscount();
+        advice();
     }
 
     public void consult(){
-        System.out.println("Manager talks about the product");
+        System.out.println(getName()+" talks about the product");
     }
     public void sayDiscount(){
-        System.out.println("Manager talk about discounts");
+        System.out.println(getName()+" talk about discounts");
     }
     public void advice(){
-        System.out.println("Manger give advice");
+        System.out.println(getName()+" give advice");
     }
 }

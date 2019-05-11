@@ -8,6 +8,7 @@ public class Employee extends Human {
     private boolean isPresence;
     public Employee(String name, String phoneNumber) {
         super(name, phoneNumber);
+
     }
 
     public Date getEmploymentDate() {

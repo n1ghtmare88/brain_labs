@@ -71,4 +71,15 @@ public final class Shop {
                 "\nclient " + client +
                 "\ncashier " + cashier;
     }
+    public void open(){
+        System.out.println("Shop is OPEN");
+        client.aboutProduct();
+        manager.makeWork();
+        client.buy();
+        cashier.makeWork();
+        security.makeWork();
+    }
+    public void close(){
+        System.out.println("Shop closes for lunch");
+    }
 }
