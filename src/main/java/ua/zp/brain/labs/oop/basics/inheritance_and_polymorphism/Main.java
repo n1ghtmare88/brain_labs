@@ -12,6 +12,8 @@ public class Main {
         //shop.getCashier().makeWork();
         //shop.getSecurity().makeWork();
         shop.open();
+        shop.open();
+        shop.open();
     }
 
 
