@@ -35,11 +35,11 @@ public class Employee extends Human {
         isPresence = presence;
     }
     public void comeToWork(){
-        System.out.println("Come to work");
+        System.out.println(getName()+":Come to work");
     }
 
     public void dinner(){
-        System.out.println("I go for lunch");
+        System.out.println(getName()+":I go for lunch");
     }
 
     public void makeWork(){

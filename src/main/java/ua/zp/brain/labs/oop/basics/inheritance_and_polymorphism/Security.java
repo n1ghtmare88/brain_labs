@@ -7,10 +7,16 @@ public final class Security extends Employee {
 
     @Override
     public void makeWork() {
-        super.makeWork();
+        //super.makeWork();
         talk();
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public void talk(){
-        System.out.println(getName()+" talk on the radio");
+        System.out.println(getName()+":talk on the radio");
     }
 }

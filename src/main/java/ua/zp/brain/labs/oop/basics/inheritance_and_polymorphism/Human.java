@@ -37,10 +37,10 @@ public class Human {
     }
 
     public void sayHello() {
-        System.out.println("Hello my name is "+name+".");
+        System.out.println(getName()+":Hello my name is "+name+".");
     }
     public void sayGoodbye(){
-        System.out.println("Goodbye!!!");
+        System.out.println(getName()+":Goodbye!!!");
     }
 
     @Override

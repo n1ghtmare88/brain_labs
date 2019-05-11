@@ -16,19 +16,24 @@ public final class Manager extends Employee {
 
     @Override
     public void makeWork() {
-        super.makeWork();
+        //super.makeWork();
         consult();
         sayDiscount();
         advice();
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public void consult(){
-        System.out.println(getName()+" talks about the product");
+        System.out.println(getName()+":talk about the product");
     }
     public void sayDiscount(){
-        System.out.println(getName()+" talk about discounts");
+        System.out.println(getName()+":talk about discounts");
     }
     public void advice(){
-        System.out.println(getName()+" give advice");
+        System.out.println(getName()+":give advice");
     }
 }

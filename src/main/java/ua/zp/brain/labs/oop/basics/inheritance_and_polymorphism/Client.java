@@ -23,10 +23,15 @@ public final class Client extends Human {
         this.money = money;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public void aboutProduct(){
-        System.out.println("Please say me about this product");
+        System.out.println(getName()+":Please say me about this product?");
     }
     public void buy(){
-        System.out.println("I want buy this product");
+        System.out.println(getName()+":I want buy this product!!!");
     }
 }

@@ -16,11 +16,15 @@ public final class Cashier extends Employee {
 
     @Override
     public void makeWork() {
-        super.makeWork();
         countMoney();
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public void countMoney(){
-        System.out.println(getName()+" count money");
+        System.out.println(getName()+":count money");
     }
 }

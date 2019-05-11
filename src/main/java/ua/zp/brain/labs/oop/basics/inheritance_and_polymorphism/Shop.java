@@ -73,13 +73,25 @@ public final class Shop {
     }
     public void open(){
         System.out.println("Shop is OPEN");
+        manager.comeToWork();
+        cashier.comeToWork();
+        security.comeToWork();
+
+    }
+    public void lunch(){
+        System.out.println("Shop closes for lunch");
+        manager.dinner();
+        cashier.dinner();
+        security.dinner();
+        client.sayGoodbye();
+    }
+    public void sell(){
+        client.sayHello();
+        manager.sayHello();
         client.aboutProduct();
         manager.makeWork();
         client.buy();
         cashier.makeWork();
         security.makeWork();
-    }
-    public void close(){
-        System.out.println("Shop closes for lunch");
     }
 }
