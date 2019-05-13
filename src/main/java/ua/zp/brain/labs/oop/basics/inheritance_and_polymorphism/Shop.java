@@ -1,4 +1,10 @@
+/**
+ * @autor Дмитрий Евтушенко
+ * @version 1.0
+ * Этот класс Магазин
+ */
 package ua.zp.brain.labs.oop.basics.inheritance_and_polymorphism;
+import java.util.Objects;
 
 public final class Shop {
     private String nameShop;
@@ -7,6 +13,13 @@ public final class Shop {
     private Security security;
     private Client client;
     private Cashier cashier;
+
+    {
+        manager=new Manager("Владик", "+38-050-111-11-00");
+        security=new Security("Василий","+38-050-111-11-01");
+        client=new Client("Валера","+38-050-111-11-02");
+        cashier=new Cashier("Елена","+38-050-111-11-03");
+    }
 
     public Shop(String nameShop, String addressShop) {
         this.nameShop = nameShop;
@@ -71,6 +84,21 @@ public final class Shop {
                 "\nclient " + client +
                 "\ncashier " + cashier;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Shop)) return false;
+        Shop shop = (Shop) o;
+        return Objects.equals(nameShop, shop.nameShop) &&
+                Objects.equals(addressShop, shop.addressShop);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameShop, addressShop);
+    }
+
     public void open(){
         System.out.println("Shop is OPEN");
         manager.comeToWork();
@@ -86,6 +114,7 @@ public final class Shop {
         client.sayGoodbye();
     }
     public void sell(){
+        System.out.println("The store starts to sell");
         client.sayHello();
         manager.sayHello();
         client.aboutProduct();
