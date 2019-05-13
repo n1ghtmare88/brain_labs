@@ -13,8 +13,7 @@ public class Main {
         shop.setCashier(new Cashier("Galina Petrovna", "+38-050-222-22-22"));
         shop.setSecurity(new Security("Ivan Vladimirovich", "+38-050-333-22-22"));
         shop.setClient(new Client("Nikolay", "+38-050-999-99-99"));
-
-
+        
         shop.open();
         System.out.println("====================");
 
@@ -22,7 +21,5 @@ public class Main {
         System.out.println("====================");
 
         shop.lunch();
-
-
     }
 }
