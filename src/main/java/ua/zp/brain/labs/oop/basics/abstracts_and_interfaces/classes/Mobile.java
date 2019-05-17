@@ -26,12 +26,14 @@ public class Mobile extends Phone{
     }
 
     @Override
-    protected void powerOn() {
+    public void powerOn() {
         System.out.println(getName()+":Device power ON!!!");
     }
 
     @Override
-    protected void powerOff() {
+    public void powerOff() {
+        System.out.println(getName()+":Device power OFF!!!");
+
 
     }
 }

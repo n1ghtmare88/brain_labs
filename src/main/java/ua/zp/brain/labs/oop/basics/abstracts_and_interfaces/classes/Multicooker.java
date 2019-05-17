@@ -2,12 +2,12 @@ package ua.zp.brain.labs.oop.basics.abstracts_and_interfaces.classes;
 
 abstract public class Multicooker extends AbstractDevice {
     @Override
-    protected void powerOn() {
+    public void powerOn() {
 
     }
 
     @Override
-    protected void powerOff() {
+    public void powerOff() {
 
     }
 

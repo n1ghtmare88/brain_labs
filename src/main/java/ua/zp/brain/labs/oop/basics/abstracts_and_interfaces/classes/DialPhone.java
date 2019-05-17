@@ -1,6 +1,8 @@
 package ua.zp.brain.labs.oop.basics.abstracts_and_interfaces.classes;
 
-public final class DialPhone extends Phone{
+import ua.zp.brain.labs.oop.basics.abstracts_and_interfaces.interfaces.Caller;
+
+public final class DialPhone extends Phone implements Caller {
     private boolean hasAnswerPhone;
 
     public boolean isHasAnswerPhone() {
@@ -11,10 +13,6 @@ public final class DialPhone extends Phone{
         this.hasAnswerPhone = hasAnswerPhone;
     }
 
-    @Override
-    public void call() {
-
-    }
 
     @Override
     public void powerOn() {
@@ -28,5 +26,10 @@ public final class DialPhone extends Phone{
 
     public void autoAnswer(){
 
+    }
+
+    @Override
+    public void call() {
+        System.out.println("calling");
     }
 }

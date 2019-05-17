@@ -1,7 +1,7 @@
 package ua.zp.brain.labs.oop.basics.abstracts_and_interfaces.classes;
 
 abstract public class AbstractDevice {
-    private String name="fefef";
+    private String name=getClass().getSimpleName();
     private int serialNumber;
 
     public AbstractDevice() {
@@ -32,6 +32,6 @@ abstract public class AbstractDevice {
                 '}';
     }
 
-    abstract protected void powerOn();
-    abstract protected void powerOff();
+    abstract public void powerOn();
+    abstract public void powerOff();
 }
