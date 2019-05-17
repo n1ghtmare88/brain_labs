@@ -21,6 +21,5 @@ public class Main {
         System.out.println("====================");
 
         shop.lunch();
-        System.out.println(shop);
     }
 }
