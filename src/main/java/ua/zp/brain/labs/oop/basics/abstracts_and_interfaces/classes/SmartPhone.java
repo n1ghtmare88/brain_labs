@@ -1,6 +1,9 @@
 package ua.zp.brain.labs.oop.basics.abstracts_and_interfaces.classes;
 
-public final class SmartPhone extends Mobile{
+import ua.zp.brain.labs.oop.basics.abstracts_and_interfaces.interfaces.Caller;
+import ua.zp.brain.labs.oop.basics.abstracts_and_interfaces.interfaces.EmailSender;
+
+public final class SmartPhone extends Mobile implements Caller, EmailSender {
     private String os;
 
     public String getOs() {
@@ -25,4 +28,23 @@ public final class SmartPhone extends Mobile{
 
     }
 
+    @Override
+    public void call() {
+
+    }
+
+    @Override
+    public String editMail(String body) {
+        return null;
+    }
+
+    @Override
+    public String createMail(String body) {
+        return null;
+    }
+
+    @Override
+    public void sendMail(String body) {
+        System.out.println(body);
+    }
 }

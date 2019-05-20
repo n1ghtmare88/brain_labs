@@ -5,6 +5,7 @@ abstract public class AbstractDevice {
     private int serialNumber;
 
     public AbstractDevice() {
+
         powerOn();
     }
 
