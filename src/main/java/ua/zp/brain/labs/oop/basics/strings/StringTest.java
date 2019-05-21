@@ -15,6 +15,9 @@ public class StringTest {
 
         String[]array=fruits.split(",");
         System.out.println(Arrays.toString(array));
-
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 }
