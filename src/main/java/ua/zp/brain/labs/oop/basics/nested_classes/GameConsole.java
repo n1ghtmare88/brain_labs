@@ -17,17 +17,17 @@ public class GameConsole {
         private Brand brand;
         private String serialNumber;
         private String serialNumberConsole;
-        private byte connectedNumber;
+        private int connectedNumber;
         private Color color;
         private double changeLevel;
         private boolean isOn;
 
-        public Gamepad(Brand brand, byte connectedNumber) {
+        public Gamepad(Brand brand, int connectedNumber) {
             this.brand = brand;
             this.connectedNumber = connectedNumber;
             serialNumberConsole=GameConsole.this.serialNumber;
-            GameConsole.this.firstGamepad=new Gamepad(brand,(byte) 1);
-            GameConsole.this.secondGamepad=new Gamepad(brand,(byte)2);
+            GameConsole.this.firstGamepad=new Gamepad(brand, 1);
+            GameConsole.this.secondGamepad=new Gamepad(brand,2);
         }
     }
 }
