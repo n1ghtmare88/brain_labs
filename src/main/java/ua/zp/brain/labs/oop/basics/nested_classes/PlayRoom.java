@@ -50,5 +50,8 @@ public class PlayRoom {
         gameConsole.playGame();
         gameConsole.playGame();
         gameConsole.playGame();*/
+                gameConsole.loadGame(virtualGames[0]);
+
+        gameConsole.playGame();
     }
 }
