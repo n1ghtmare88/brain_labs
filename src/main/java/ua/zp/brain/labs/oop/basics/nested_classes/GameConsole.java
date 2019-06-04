@@ -102,7 +102,6 @@ public class GameConsole implements Powered{
             else {
                 stringBuilder.append("1й геймпад имеет заряд "+firstGamepad.changeLevel+"%");
             }
-            //charge="1й геймпад имеет заряд "+firstGamepad.changeLevel+"%";
         }
         if(secondGamepad.isOn){
             secondGamepad.changeLevel-=10.0;
@@ -112,11 +111,9 @@ public class GameConsole implements Powered{
             else {
                 stringBuilder.append(" 2й геймпад имеет заряд "+firstGamepad.changeLevel+"%");
             }
-            //charge+=" 2й геймпад имеет заряд "+firstGamepad.changeLevel+"%";
 
         }
         System.out.println("Играем в "+activeGame.getName()+" "+stringBuilder);
-        //System.out.println("Играем в "+activeGame.getName());
     }
     public class Gamepad implements Powered{
         private final Brand brand;

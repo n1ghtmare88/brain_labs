@@ -63,7 +63,6 @@ public class Game {
         private VirtualGame(String name,Ganre ganre,int rating) {
             super(name,ganre,Type.VIRTUAL);
             data=new Game(name,ganre,Type.PHYSICAL);
-            //data=new Game(name,ganre,Type.VIRTUAL);
             this.rating=rating;
         }
 
