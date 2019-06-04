@@ -86,6 +86,7 @@ public class GameConsole implements Powered{
     }
 
     public void loadGame(Game game){
+        activeGame=game;
         System.out.println("Игра \""+game.getName()+"\" загружается");
     }
 
@@ -115,6 +116,7 @@ public class GameConsole implements Powered{
 
         }
         System.out.println("Играем в "+activeGame.getName()+" "+stringBuilder);
+        //System.out.println("Играем в "+activeGame.getName());
     }
     public class Gamepad implements Powered{
         private final Brand brand;

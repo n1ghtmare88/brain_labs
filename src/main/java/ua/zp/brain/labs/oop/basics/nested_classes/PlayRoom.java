@@ -36,8 +36,21 @@ public class PlayRoom {
                 return Integer.compare(o1.getRating(),o2.getRating());
             }
         });
-        gameConsole.getFirstGamepad().powerON();
+        //gameConsole.getFirstGamepad().powerON();
         gameConsole.loadGame(virtualGames[0]);
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
+        gameConsole.playGame();
         gameConsole.playGame();
     }
 }
