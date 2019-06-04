@@ -6,16 +6,16 @@ import java.util.Comparator;
 public class PlayRoom {
     public static void main(String[] args) {
         Game.GameDisk [] gameDisks=new Game.GameDisk[4];
-        gameDisks[0]=Game.getDisk("Сталкер",Ganre.ACTION,"+18");
-        gameDisks[1]=Game.getDisk("Сталкер",Ganre.ACTION,"+18");
+        gameDisks[0]=Game.getDisk("Сталкер",Ganre.STRATEGY,"+18");
+        gameDisks[1]=Game.getDisk("Сталкер",Ganre.RACE,"+18");
         gameDisks[2]=Game.getDisk("Сталкер",Ganre.ACTION,"+18");
-        gameDisks[3]=Game.getDisk("Сталкер",Ganre.ACTION,"+18");
+        gameDisks[3]=Game.getDisk("Сталкер",Ganre.SPORT,"+18");
 
         Game.VirtualGame [] virtualGames=new Game.VirtualGame[4];
         virtualGames[0]=Game.getVirtualGame("DOTA2",Ganre.STRATEGY,4);
-        virtualGames[1]=Game.getVirtualGame("DOTA2",Ganre.STRATEGY,4);
-        virtualGames[2]=Game.getVirtualGame("DOTA2",Ganre.STRATEGY,4);
-        virtualGames[3]=Game.getVirtualGame("DOTA2",Ganre.STRATEGY,4);
+        virtualGames[1]=Game.getVirtualGame("DOTA2",Ganre.STRATEGY,1);
+        virtualGames[2]=Game.getVirtualGame("DOTA2",Ganre.STRATEGY,2);
+        virtualGames[3]=Game.getVirtualGame("DOTA2",Ganre.STRATEGY,3);
 
         GameConsole gameConsole=new GameConsole(Brand.SONY,"PS4","123");
 
@@ -30,14 +30,12 @@ public class PlayRoom {
         Arrays.sort(virtualGames, new Comparator<Game.VirtualGame>() {
             @Override
             public int compare(Game.VirtualGame o1, Game.VirtualGame o2) {
-                /*Integer rating1=o1.getRating();
-                Integer rating2=o2.getRating();
-                return rating1.compareTo(rating2);*/
                 return Integer.compare(o1.getRating(),o2.getRating());
             }
         });
+        System.out.println(Arrays.toString(virtualGames));
         //gameConsole.getFirstGamepad().powerON();
-        gameConsole.loadGame(virtualGames[0]);
+        /*gameConsole.loadGame(virtualGames[0]);
         gameConsole.playGame();
         gameConsole.playGame();
         gameConsole.playGame();
@@ -51,6 +49,6 @@ public class PlayRoom {
         gameConsole.playGame();
         gameConsole.playGame();
         gameConsole.playGame();
-        gameConsole.playGame();
+        gameConsole.playGame();*/
     }
 }

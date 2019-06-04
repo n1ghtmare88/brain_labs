@@ -27,6 +27,15 @@ public class Game {
         return type;
     }
 
+    @Override
+    public String toString() {
+        return "Game{" +
+                "name='" + name + '\'' +
+                ", ganre=" + ganre +
+                ", type=" + type +
+                '}';
+    }
+
     public static class GameDisk {
         private final String description;
         private final Game data;
@@ -43,6 +52,8 @@ public class Game {
         public Game getData() {
             return data;
         }
+
+
     }
 
     public static class VirtualGame extends Game{
@@ -66,6 +77,14 @@ public class Game {
 
         public void setRating(int rating) {
             this.rating = rating;
+        }
+
+        @Override
+        public String toString() {
+            return "VirtualGame{" +
+                    "rating=" + rating +
+                    ", data=" + data +
+                    '}';
         }
     }
 
