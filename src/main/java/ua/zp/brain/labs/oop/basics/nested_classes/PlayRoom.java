@@ -50,8 +50,12 @@ public class PlayRoom {
         gameConsole.playGame();
         gameConsole.playGame();
         gameConsole.playGame();*/
-                gameConsole.loadGame(virtualGames[0]);
+        gameConsole.getFirstGamepad().powerON();
+                gameConsole.loadGame(gameDisks[0]);
 
-        gameConsole.playGame();
+        for (int i = 0; i <20 ; i++) {
+            gameConsole.playGame();
+        }
+
     }
 }

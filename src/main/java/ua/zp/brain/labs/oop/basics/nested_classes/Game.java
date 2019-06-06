@@ -36,11 +36,12 @@ public class Game {
                 '}';
     }
 
-    public static class GameDisk {
+    public static class GameDisk extends Game{
         private final String description;
         private final Game data;
 
         private GameDisk(String name,Ganre ganre,String description) {
+            super(name,ganre,Type.PHYSICAL);
             data=new Game(name,ganre,Type.PHYSICAL);
             this.description=description;
         }
@@ -62,7 +63,7 @@ public class Game {
 
         private VirtualGame(String name,Ganre ganre,int rating) {
             super(name,ganre,Type.VIRTUAL);
-            data=new Game(name,ganre,Type.PHYSICAL);
+            data=new Game(name,ganre,Type.VIRTUAL);
             this.rating=rating;
         }
 

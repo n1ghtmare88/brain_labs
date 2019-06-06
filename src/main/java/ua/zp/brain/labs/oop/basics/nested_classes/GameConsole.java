@@ -91,7 +91,7 @@ public class GameConsole implements Powered{
     }
 
     public void playGame(){
-        //String charge;
+
         StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append("");
         if(firstGamepad.isOn){
