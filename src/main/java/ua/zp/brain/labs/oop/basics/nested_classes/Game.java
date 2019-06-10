@@ -5,8 +5,8 @@ public class Game {
     private final Ganre ganre;
     private final Type type;
 
-    private enum Type{
-        VIRTUAL,PHYSICAL;
+    private enum Type {
+        VIRTUAL, PHYSICAL;
     }
 
     private Game(String name, Ganre ganre, Type type) {
@@ -36,14 +36,14 @@ public class Game {
                 '}';
     }
 
-    public static class GameDisk extends Game{
+    public static class GameDisk extends Game {
         private final String description;
         private final Game data;
 
-        private GameDisk(String name,Ganre ganre,String description) {
-            super(name,ganre,Type.PHYSICAL);
-            data=new Game(name,ganre,Type.PHYSICAL);
-            this.description=description;
+        private GameDisk(String name, Ganre ganre, String description) {
+            super(name, ganre, Type.PHYSICAL);
+            data = new Game(name, ganre, Type.PHYSICAL);
+            this.description = description;
         }
 
         public String getDescription() {
@@ -54,17 +54,24 @@ public class Game {
             return data;
         }
 
+        @Override
+        public String toString() {
+            return "PhysicalGame{" +
+                    "description=" + description +
+                    ", data=" + data +
+                    '}';
+        }
 
     }
 
-    public static class VirtualGame extends Game{
+    public static class VirtualGame extends Game {
         private int rating;
         private final Game data;
 
-        private VirtualGame(String name,Ganre ganre,int rating) {
-            super(name,ganre,Type.VIRTUAL);
-            data=new Game(name,ganre,Type.VIRTUAL);
-            this.rating=rating;
+        private VirtualGame(String name, Ganre ganre, int rating) {
+            super(name, ganre, Type.VIRTUAL);
+            data = new Game(name, ganre, Type.VIRTUAL);
+            this.rating = rating;
         }
 
         public Game getData() {
@@ -88,11 +95,11 @@ public class Game {
         }
     }
 
-    public static GameDisk getDisk(String name,Ganre ganre,String description){
-        return new GameDisk(name,ganre,description);
+    public static GameDisk getDisk(String name, Ganre ganre, String description) {
+        return new GameDisk(name, ganre, description);
     }
 
-    public static VirtualGame getVirtualGame(String name,Ganre ganre,int rating){
-        return new VirtualGame(name,ganre,rating);
+    public static VirtualGame getVirtualGame(String name, Ganre ganre, int rating) {
+        return new VirtualGame(name, ganre, rating);
     }
 }

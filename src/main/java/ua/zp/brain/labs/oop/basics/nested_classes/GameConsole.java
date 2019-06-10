@@ -1,21 +1,23 @@
 package ua.zp.brain.labs.oop.basics.nested_classes;
 
-public class GameConsole implements Powered{
+public class GameConsole implements Powered {
     private final Brand brand;
     private final String model;
     private final String serialNumber;
-    private boolean isON;
+    private boolean consoleIsON;
     private Gamepad firstGamepad;
     private Gamepad secondGamepad;
     private Game activeGame;
+    private int waitingCounter;
 
-    public GameConsole(Brand brand,String model, String serialNumber) {
+    public GameConsole(Brand brand, String model, String serialNumber) {
         this.brand = brand;
-        this.model=model;
+        this.model = model;
         this.serialNumber = serialNumber;
-        isON=false;
-        firstGamepad=new Gamepad(this.brand,1);
-        secondGamepad=new Gamepad(this.brand,2);
+        consoleIsON = false;
+        firstGamepad = new Gamepad(this.brand, 1);
+        secondGamepad = new Gamepad(this.brand, 2);
+        waitingCounter = 0;
     }
 
     public Brand getBrand() {
@@ -30,12 +32,12 @@ public class GameConsole implements Powered{
         return serialNumber;
     }
 
-    public boolean isON() {
-        return isON;
+    public boolean isConsoleIsON() {
+        return consoleIsON;
     }
 
-    public void setON(boolean ON) {
-        isON = ON;
+    public void setConsoleIsON(boolean ON) {
+        consoleIsON = ON;
     }
 
     public Gamepad getFirstGamepad() {
@@ -64,72 +66,87 @@ public class GameConsole implements Powered{
 
     @Override
     public void powerON() {
-        if(firstGamepad.isOn || secondGamepad.isOn){
-            cableSelect();
-            isON=true;
-        }
-        else {
-            System.out.println("please stand by gamepad");
+        if (firstGamepad.gamepadIsOn || secondGamepad.gamepadIsOn) {
+            consoleIsON = true;
+        } else {
+            throw new GameConsoleException("please stand by gamepad");
+            //System.out.println("please stand by gamepad");
         }
     }
 
     @Override
     public void powerOff() {
-        isON=false;
+        consoleIsON = false;
     }
 
-    public void cableSelect(){
-        if(!firstGamepad.isOn){
+    public void cableSelect() {
+        if (!firstGamepad.gamepadIsOn && secondGamepad.gamepadIsOn) {
             firstGamepad.setConnectedNumber(2);
             secondGamepad.setConnectedNumber(1);
         }
     }
 
-    public void loadGame(Game game){
-        activeGame=game;
-        System.out.println("Игра \""+game.getName()+"\" загружается");
+    public void loadGame(Game game) {
+        powerON();
+        activeGame = game;
+        System.out.println("Игра \"" + game.getName() + "\" загружается");
     }
 
-    public void playGame(){
-
-        StringBuilder stringBuilder=new StringBuilder();
+    public void playGame() {
+        checkStatus();
+        StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("");
-        if(firstGamepad.isOn){
-            firstGamepad.changeLevel-=10.0;
-            if(firstGamepad.changeLevel==0){
-                System.out.println("1й геймпад разрядился");
-            }
-            else {
-                stringBuilder.append("1й геймпад имеет заряд "+firstGamepad.changeLevel+"%");
+        if (firstGamepad.gamepadIsOn) {
+            firstGamepad.changeLevel -= 10.0;
+            if (firstGamepad.changeLevel == 0) {
+                System.out.println(firstGamepad.connectedNumber+"й геймпад разрядился");
+                firstGamepad.powerOff();
+            } else {
+                stringBuilder.append(firstGamepad.connectedNumber+"й геймпад имеет заряд " + firstGamepad.changeLevel + "%");
             }
         }
-        if(secondGamepad.isOn){
-            secondGamepad.changeLevel-=10.0;
-            if(secondGamepad.changeLevel==0){
-                System.out.println("2й геймпад разрядился");
-            }
-            else {
-                stringBuilder.append(" 2й геймпад имеет заряд "+firstGamepad.changeLevel+"%");
+        if (secondGamepad.gamepadIsOn) {
+            secondGamepad.changeLevel -= 10.0;
+            if (secondGamepad.changeLevel == 0) {
+                System.out.println(secondGamepad.connectedNumber+"й геймпад разрядился");
+                secondGamepad.powerOff();
+            } else {
+                stringBuilder.append(" "+secondGamepad.connectedNumber+"й геймпад имеет заряд " + secondGamepad.changeLevel + "%");
             }
 
         }
-        System.out.println("Играем в "+activeGame.getName()+" "+stringBuilder);
+        System.out.println("Играем в " + activeGame.getName() + " " + stringBuilder);
     }
-    public class Gamepad implements Powered{
+
+    private void checkStatus() {
+        if (waitingCounter == 5) {
+            consoleIsON = false;
+            throw new GameConsoleException("Приставка завершает работу из-за отсутствия активности");
+        }
+        if (!firstGamepad.gamepadIsOn && !secondGamepad.gamepadIsOn) {
+            System.out.println("Подключите джойстик!!!");
+            waitingCounter++;
+        }
+        if (firstGamepad.gamepadIsOn || secondGamepad.gamepadIsOn) {
+            waitingCounter = 0;
+        }
+    }
+
+    public class Gamepad implements Powered {
         private final Brand brand;
         private final String consoleSerial;
         private int connectedNumber;
         private Color color;
         private double changeLevel;
-        private boolean isOn;
+        private boolean gamepadIsOn;
 
         public Gamepad(Brand brand, int connectedNumber) {
             this.brand = brand;
             this.connectedNumber = connectedNumber;
-            consoleSerial=serialNumber;
-            color=Color.BLACK;
-            changeLevel=100.0;
-            isOn=false;
+            consoleSerial = serialNumber;
+            color = Color.BLACK;
+            changeLevel = 100.0;
+            gamepadIsOn = false;
         }
 
         public Brand getBrand() {
@@ -164,22 +181,25 @@ public class GameConsole implements Powered{
             this.changeLevel = changeLevel;
         }
 
-        public boolean isOn() {
-            return isOn;
+        public boolean isGamepadIsOn() {
+            return gamepadIsOn;
         }
 
-        public void setOn(boolean on) {
-            isOn = on;
+        public void setGamepadIsOn(boolean on) {
+            gamepadIsOn = on;
         }
 
         @Override
         public void powerON() {
-            isOn=true;
+            gamepadIsOn = true;
+            changeLevel = 100.0;
+            consoleIsON = true;
         }
 
         @Override
         public void powerOff() {
-            isOn=false;
+            gamepadIsOn = false;
+            cableSelect();
         }
     }
 }

@@ -33,29 +33,49 @@ public class PlayRoom {
                 return Integer.compare(o1.getRating(),o2.getRating());
             }
         });
-        System.out.println(Arrays.toString(virtualGames));
-        //gameConsole.getFirstGamepad().powerON();
-        /*gameConsole.loadGame(virtualGames[0]);
+
+        //System.out.println(Arrays.toString(virtualGames));
+        //System.out.println(Arrays.toString(gameDisks));
+
+        gameConsole.getSecondGamepad().powerON();
+
+        //gameConsole.powerON();
+
+
+        gameConsole.loadGame(virtualGames[0]);
+        gameConsole.playGame();
+        gameConsole.playGame();
+        System.out.println(gameConsole.getFirstGamepad().getConnectedNumber());
+        System.out.println(gameConsole.getSecondGamepad().getConnectedNumber());
+        gameConsole.getFirstGamepad().powerOff();
+        gameConsole.playGame();
+        gameConsole.getSecondGamepad().powerON();
         gameConsole.playGame();
         gameConsole.playGame();
         gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();*/
-        gameConsole.getFirstGamepad().powerON();
-                gameConsole.loadGame(gameDisks[0]);
+        System.out.println(gameConsole.getFirstGamepad().getConnectedNumber());
+        System.out.println(gameConsole.getSecondGamepad().getConnectedNumber());
+
+
+
+/*
+
+
+             gameConsole.loadGame(gameDisks[0]);
+             gameConsole.getFirstGamepad().powerON();
 
         for (int i = 0; i <20 ; i++) {
             gameConsole.playGame();
         }
-
+        System.out.println(gameConsole.getFirstGamepad().getChangeLevel());
+            gameConsole.getFirstGamepad().powerON();
+        System.out.println(gameConsole.getFirstGamepad().getChangeLevel());
+        for (int i = 0; i <20 ; i++) {
+            gameConsole.playGame();
+        }
+        gameConsole.getSecondGamepad().powerON();
+        for (int i = 0; i <20 ; i++) {
+            gameConsole.playGame();
+        }*/
     }
 }
