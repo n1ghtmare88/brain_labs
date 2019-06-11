@@ -1,3 +1,6 @@
+/**
+ * @autor Дмитрий Евтушенко
+ */
 package ua.zp.brain.labs.oop.basics.nested_classes;
 
 import java.util.Arrays;
@@ -17,7 +20,6 @@ public class PlayRoom {
         virtualGames[2]=Game.getVirtualGame("Left 4 Dead",Ganre.ACTION,2);
         virtualGames[3]=Game.getVirtualGame("Portal 2",Ganre.STRATEGY,3);
 
-        GameConsole gameConsole=new GameConsole(Brand.SONY,"PS4","123");
 
         Arrays.sort(gameDisks, new Comparator<Game.GameDisk>() {
             @Override
@@ -37,45 +39,14 @@ public class PlayRoom {
         //System.out.println(Arrays.toString(virtualGames));
         //System.out.println(Arrays.toString(gameDisks));
 
+        GameConsole gameConsole=new GameConsole(Brand.SONY,"PS4","123");
+        gameConsole.getFirstGamepad().powerON();
         gameConsole.getSecondGamepad().powerON();
-
-        //gameConsole.powerON();
-
-
         gameConsole.loadGame(virtualGames[0]);
-        gameConsole.playGame();
-        gameConsole.playGame();
-        System.out.println(gameConsole.getFirstGamepad().getConnectedNumber());
-        System.out.println(gameConsole.getSecondGamepad().getConnectedNumber());
-        gameConsole.getFirstGamepad().powerOff();
-        gameConsole.playGame();
-        gameConsole.getSecondGamepad().powerON();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        gameConsole.playGame();
-        System.out.println(gameConsole.getFirstGamepad().getConnectedNumber());
-        System.out.println(gameConsole.getSecondGamepad().getConnectedNumber());
 
-
-
-/*
-
-
-             gameConsole.loadGame(gameDisks[0]);
-             gameConsole.getFirstGamepad().powerON();
-
-        for (int i = 0; i <20 ; i++) {
+        for (int i = 0; i < 20; i++) {
+            if(i==5)gameConsole.getFirstGamepad().powerOff();
             gameConsole.playGame();
         }
-        System.out.println(gameConsole.getFirstGamepad().getChangeLevel());
-            gameConsole.getFirstGamepad().powerON();
-        System.out.println(gameConsole.getFirstGamepad().getChangeLevel());
-        for (int i = 0; i <20 ; i++) {
-            gameConsole.playGame();
-        }
-        gameConsole.getSecondGamepad().powerON();
-        for (int i = 0; i <20 ; i++) {
-            gameConsole.playGame();
-        }*/
     }
 }

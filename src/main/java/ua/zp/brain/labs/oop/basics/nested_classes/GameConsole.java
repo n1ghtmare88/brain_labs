@@ -1,3 +1,6 @@
+/**
+ * @autor Дмитрий Евтушенко
+ */
 package ua.zp.brain.labs.oop.basics.nested_classes;
 
 public class GameConsole implements Powered {
@@ -94,6 +97,10 @@ public class GameConsole implements Powered {
 
     public void playGame() {
         checkStatus();
+        System.out.println("Играем в " + activeGame.getName() + " " + chargeStatus());
+    }
+
+    private StringBuilder chargeStatus(){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("");
         if (firstGamepad.gamepadIsOn) {
@@ -113,11 +120,9 @@ public class GameConsole implements Powered {
             } else {
                 stringBuilder.append(" "+secondGamepad.connectedNumber+"й геймпад имеет заряд " + secondGamepad.changeLevel + "%");
             }
-
         }
-        System.out.println("Играем в " + activeGame.getName() + " " + stringBuilder);
+        return stringBuilder;
     }
-
     private void checkStatus() {
         if (waitingCounter == 5) {
             consoleIsON = false;
@@ -194,6 +199,7 @@ public class GameConsole implements Powered {
             gamepadIsOn = true;
             changeLevel = 100.0;
             consoleIsON = true;
+            cableSelect();
         }
 
         @Override
