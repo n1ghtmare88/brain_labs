@@ -48,5 +48,6 @@ public class PlayRoom {
             if(i==5)gameConsole.getFirstGamepad().powerOff();
             gameConsole.playGame();
         }
+        System.out.println();
     }
 }
