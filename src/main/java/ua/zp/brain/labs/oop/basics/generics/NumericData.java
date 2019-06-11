@@ -1,8 +1,8 @@
+/**
+ * @autor Дмитрий Евтушенко
+ */
 package ua.zp.brain.labs.oop.basics.generics;
 
-/**
- * Created by Администратор on 04.06.2019.
- */
 public class NumericData extends AbstractData implements Storable<Number>{
     private final Type type=Type.NUM;
     private Number data;
@@ -12,16 +12,29 @@ public class NumericData extends AbstractData implements Storable<Number>{
 
     @Override
     public Number read() {
-        return null;
+        return data;
     }
 
     @Override
     public void write(Number data) {
-
+        this.data=data;
     }
 
     @Override
     public Type getType() {
-        return null;
+        return type;
+    }
+
+    @Override
+    String convertToString() {
+        return String.valueOf(data);
+    }
+
+    @Override
+    public String toString() {
+        return "NumericData{" +
+                "type=" + type +
+                ", data=" + data +
+                '}';
     }
 }

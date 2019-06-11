@@ -1,28 +1,43 @@
+/**
+ * @autor Дмитрий Евтушенко
+ */
 package ua.zp.brain.labs.oop.basics.generics;
 
-/**
- * Created by Администратор on 04.06.2019.
- */
-public class BinaryData extends AbstractData implements Storable<Byte>{
+import java.util.Arrays;
+
+public class BinaryData extends AbstractData implements Storable<byte[]>{
     private final Type type=Type.BIN;
-    private Byte[] data;
+    private byte[] data;
 
     public BinaryData(long id) {
         super(id);
     }
 
     @Override
-    public Byte read() {
-        return null;
+    public byte[] read() {
+        return data;
     }
 
     @Override
-    public void write(Byte data) {
-
+    public void write(byte[] data) {
+        this.data=data;
     }
 
     @Override
     public Type getType() {
-        return null;
+        return type;
+    }
+
+    @Override
+    String convertToString() {
+        return new String(data);
+    }
+
+    @Override
+    public String toString() {
+        return "BinaryData{" +
+                "type=" + type +
+                ", data=" + Arrays.toString(data) +
+                '}';
     }
 }
